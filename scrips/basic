@@ -1,0 +1,132 @@
+#!/bin/bash
+
+# Переменные
+# Переменнве среды
+# $VAR
+# \ символ эранирования
+
+echo "---------------------------------------"
+echo "Путь до корневой директории $HOME"
+
+echo "Стоимость компьютера \$1000"
+
+
+# Пользователькие переменные
+echo "---------------------------------------"
+color="Зеленый"
+colorCode="#008000"
+
+echo "цвет: $color, код цвета: $colorCode"
+
+kernelVersion=`uname -a`
+
+echo $kernelVersion""
+
+kernelVersion=$(uname -a)
+
+echo $kernelVersion
+
+
+# Математические операции
+echo "---------------------------------------"
+
+someNumber=2
+anotherNumber=4
+
+summ=$(($someNumber + $anotherNumber))
+
+echo "summ = $summ"
+
+diff=$(($someNumber - $anotherNumber))
+
+echo "diff = $diff"
+
+mult=$(($someNumber * $anotherNumber))
+
+echo "mult = $mult"
+
+div=$(($someNumber / $anotherNumber))
+
+echo "div = $div"
+
+
+# Массив
+echo "---------------------------------------"
+
+# Индексированный массив
+
+declare -a myArray
+myArray[0]=1
+myArray[1]=2
+myArray[2]=3
+
+
+myArray2=(One Two Three)
+
+echo "${myArray2[2]}"
+
+echo "${myArray[1]}"
+
+# Ассоциативный массив
+echo "---------------------------------------"
+
+declare -A myArrayA
+myArrayA[One]=1
+myArrayA[Two]=2
+myArrayA[Three]=3
+
+echo "${myArrayA[One]}"
+
+echo "---------------------------------------"
+
+echo "${myArray[@]}"
+echo "${myArray2[@]}"
+echo "${myArrayA[@]}"
+
+echo "---------------------------------------"
+
+echo "${myArray[@]}"
+echo "${myArray2[@]}"
+echo "${!myArrayA[@]}"
+
+# второй сопособ
+echo "---------------------------------------"
+declare -A myArrayA2=(
+  [four]=4
+  [five]=5
+  [six]=6
+)
+
+echo "${myArrayA2[@]}"
+echo "${!myArrayA2[@]}"
+
+
+#  Операции с массивами
+
+# Длина массива
+echo "Количество в массиве: ${#myArray[@]}"
+
+# Добавление и удаление с массива
+
+unset myArray
+myArray[2]=2
+
+echo ${#myArray[@]}
+echo "${!myArray[@]}"
+
+# добавление
+myArray[4]=4
+
+myArray+=(10)
+myArray+=(11)
+myArray+=(12)
+
+echo ${#myArray[@]}
+echo "${!myArray[@]}"
+
+myArray+=(${myArray2[@]})
+
+echo $myArray
+echo "${myArray[@]}"
+echo "${!myArray[@]}"
+echo "${#myArray[@]}"
